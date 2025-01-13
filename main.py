@@ -5,16 +5,20 @@ from constants import *
 def main():
     pygame.init()
 
+    clock = pygame.time.Clock()
+    dt = 0
+
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
     running = True
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                running = False  
+                running = False 
 
         screen.fill((0, 0, 0))  
-        pygame.display.flip()  
+        pygame.display.flip()
+        dt = clock.tick(60) / 1000   
 
     pygame.quit()  
     sys.exit()
